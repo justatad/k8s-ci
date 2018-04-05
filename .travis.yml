@@ -4,7 +4,7 @@ branches:
 sudo: required
 before_install:
 - chmod +x ./build-scripts/install-dependencies.sh
-- chmod +x ./build-scripts/deploy-k8s.sh
+  #- chmod +x ./build-scripts/deploy-k8s.sh
 - chmod +x ./build-scripts/deploy-terraform.sh
 - chmod +x ./build-scripts/inject-secrets.sh
 install:
