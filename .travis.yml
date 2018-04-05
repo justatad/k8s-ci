@@ -12,7 +12,7 @@ install:
 - "./build-scripts/inject-secrets.sh"
 script:
 - "./build-scripts/deploy-terraform.sh"
-- "./build-scripts/deploy-k8s.sh"
+#- "./build-scripts/deploy-k8s.sh"
 env:
   global:
   - secure: Lb9UN9r6ANcwSPvryY2cXsxO738VxgwNBGvNM9jcDO4EK8htcK2JquJ9d+IXZ1m8qRFOAQ1r6wrt4azyvCOYkzTfcQL5V7b44IsQmnyaq8a6zYtrZMDL2IpulHys/sBO2s5jpQ9S6GWZ5ayQlTL4iKHmFXfsnyadd7+OnksRIFZViz37bt4lcXOp7E8HamL8JyAX7HjHEuK7Z5QgAzYQDZLXNa7dTNvjFv5qw7r2hcalzufANvwDTaC/4K+Qaprn4zsgYQqbVPJLRC7N5HZEb3gMFlG08C5wTmCcK8xuW5/4EykToJwjxZKV2WnIC1MOceHCiKDf/9Z8On59wUyr9/Xwt2FGmMwNdLCA8Boyn5CoyVIaE4A8V+3OWiFH24KjZgkFM6+Y93RCx8MSkRS3mpdGtDvVBUvXhg0XnjwfeAgTOGaYDzSYAwnGewF+fB8a6Yv08ISDaeTy5KnbQRYNWpI0vr39mpa6FQQMkdmFOuVl58n6AkrHmzx0sPAKuUogXslGrDy4xe0k1mXNbTTUxJ/hxim6RsfV5CMxNnk4Dy39NuZrrViSjjkv+idj0W2GHmftMVh8dPjUWK4FnkS+qShX3oblwNv6Iz7UuJlGK3KIsfSDWqGUKalarZpmIn510KGwrcJVa9pw1mMD1VkKAFfI7e9IC5l0jLiOPoRu3Y4=
