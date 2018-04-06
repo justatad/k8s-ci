@@ -6,7 +6,7 @@ mv ./build-scripts/kubeconfig ~/.kube/config
 openssl aes-256-cbc -K $encrypted_55aec6d91b66_key -iv $encrypted_55aec6d91b66_iv -in ./build-scripts/large-secrets.txt.enc -out build-scripts/large-secrets.txt -d
  
 # run the script to get the secrets as environment variables
-source ./large-secrets.txt
+source ./build-scripts/large-secrets.txt
 export $(cut -d= -f1 ./large-secrets.txt)
  
  
