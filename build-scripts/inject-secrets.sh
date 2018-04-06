@@ -9,7 +9,7 @@ openssl aes-256-cbc -K $encrypted_55aec6d91b66_key -iv $encrypted_55aec6d91b66_i
 source ./build-scripts/large-secrets.txt
 export $(cut -d= -f1 ./build-scripts/large-secrets.txt)
  
- 
+echo $CERTIFICATE_AUTHORITY_DATA 
 # Set kubernetes secrets
 ./kubectl config set cluster.zigzag-london.net.certificate-authority-data "$CERTIFICATE_AUTHORITY_DATA"
 ./kubectl config set cluster.zigzag-london.net.client-certificate-data "$CLIENT_CERTIFICATE_DATA"
