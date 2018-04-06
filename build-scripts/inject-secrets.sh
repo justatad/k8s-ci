@@ -7,7 +7,7 @@ openssl aes-256-cbc -K $encrypted_55aec6d91b66_key -iv $encrypted_55aec6d91b66_i
  
 # run the script to get the secrets as environment variables
 source ./build-scripts/large-secrets.txt
-export $(cut -d= -f1 ./large-secrets.txt)
+export $(cut -d= -f1 ./build-scripts/large-secrets.txt)
  
  
 # Set kubernetes secrets
