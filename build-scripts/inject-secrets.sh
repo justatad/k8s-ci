@@ -11,11 +11,11 @@ export $(cut -d= -f1 ./large-secrets.txt)
  
  
 # Set kubernetes secrets
-./kubectl config set cluster.zigzag-london.com.certificate-authority-data "$CERTIFICATE_AUTHORITY_DATA"
-./kubectl config set cluster.zigzag-london.com.client-certificate-data "$CLIENT_CERTIFICATE_DATA"
-./kubectl config set cluster.zigzag-london.com.client-key-data "$CLIENT_KEY_DATA"
-./kubectl config set cluster.zigzag-london.com.password "$KUBE_PASSWORD"
-./kubectl config set cluster.zigzag-london.com-basic-auth.password "$KUBE_PASSWORD"
+./kubectl config set cluster.zigzag-london.net.certificate-authority-data "$CERTIFICATE_AUTHORITY_DATA"
+./kubectl config set cluster.zigzag-london.net.client-certificate-data "$CLIENT_CERTIFICATE_DATA"
+./kubectl config set cluster.zigzag-london.net.client-key-data "$CLIENT_KEY_DATA"
+./kubectl config set cluster.zigzag-london.net.password "$KUBE_PASSWORD"
+./kubectl config set cluster.zigzag-london.net-basic-auth.password "$KUBE_PASSWORD"
  
 # set AWS secrets
 mkdir ~/.aws
