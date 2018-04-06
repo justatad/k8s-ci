@@ -11,7 +11,7 @@ export $(cut -d= -f1 ./build-scripts/large-secrets.txt)
  
 echo $CERTIFICATE_AUTHORITY_DATA 
 # Set kubernetes secrets
-./kubectl config set cluster.zigzag-london.net.certificate-authority-data "$CERTIFICATE_AUTHORITY_DATA"
+./kubectl config set cluster.zigzag-london.net.certificate-authority-data $CERTIFICATE_AUTHORITY_DATA
 ./kubectl config set cluster.zigzag-london.net.client-certificate-data "$CLIENT_CERTIFICATE_DATA"
 ./kubectl config set cluster.zigzag-london.net.client-key-data "$CLIENT_KEY_DATA"
 ./kubectl config set cluster.zigzag-london.net.password "$KUBE_PASSWORD"
