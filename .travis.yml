@@ -1,10 +1,9 @@
 branches:
   only:
-    - master
+  - master
 sudo: required
 before_install:
 - chmod +x ./build-scripts/install-dependencies.sh
-#- chmod +x ./build-scripts/deploy-k8s.sh
 - chmod +x ./build-scripts/deploy-terraform.sh
 - chmod +x ./build-scripts/inject-secrets.sh
 install:
@@ -12,4 +11,8 @@ install:
 - "./build-scripts/inject-secrets.sh"
 script:
 - "./build-scripts/deploy-terraform.sh"
-#- "./build-scripts/deploy-k8s.sh"
+env:
+  global:
+  - secure: JwAeXXSIx0XKoRR/uW+PQzUptNmmTwnCAUEkuthhvB6/pJTmVbGa06e6zN+GHY2r6ZdD1HrOZF+JFBYYJpiU4nQtZoJ7DgZtiDbDJ5oYs4Dc7tGQxpph+ZgoJX+icuwUEDTcjVrx1qJTfz8DOVmp0IFeqUYNVYwclYQg6UBBAdLbnMe0RIi3KysvHGk20TyKLNchOckCD/kCjiTfHZw69ZwPp3O7SPEOs2DFXFslFIfBmNEAn12J3QYM4R+xo/gkb15+wlXAb4Da46mhFXAhFllXlz5WsBeF1h7ioJBbY4+9YA5/c4SFyYNpqxzu6TeZZnnzDsKMKL3erteE5X4g9ZGLSL2Hf71VVT19ok9+m9mOeIWCOMoibB70AjZ09FLEqKST3eap2lL5LWZys1+Fv20twT4zGawiRE6XmqyBBINxfycNYdgNDqUu7jQTqBiN8/QpVQx8ak91zbJ6whLrTHb855r7u2a35DAOvznBgXXEDPxqO4T/KXOGGQPJuL9yhFMF1oXZqzdJG+aqaEDg9fz4MioUbo0HwpnOPESCeaz5LdrSaT/pr30gwRSzImrXB5qUj1Du+3+gF6gnee+zz29UYVnwWOVgXE7pk2GWuE5jvwRVPg8G75wEjBgQou+T1uBzCb4/O+YYepMGjw8xn872gvGzdx1E29pt8jrWKQ8=
+  - secure: CR55i73YZbbWkOLGdXzAmq/n+HfoDE6+kFz3gxULyU+SQu+m95+ERTYYfqcmVGDiBSyfF2qnyG6BhNA0SAlaz+O6QiCfaCx2eZWnhEuzNrJ3M2VJpdYnmqZrKgQQmxkLT+yvB5OA07/zee0wfntQTuz3P6PfuibYTUcSI/jH9WCZqYc5Bzf2o3CeoI3qZh3onLDIRqYNmyWBPrkKKrRecWUxb1LNHhEoBx/J4qoWjaFSOZSQticlgGKu5QuLYlKI+eJcWLphjJs2oCN5MC1dvv+3V5/nB2cSb53Kx4yuSr9LRlbrtNXg2+xbFicGekxWJAVoUInxhGrkwFY2n5bPHBtd76/kRoWBZJrb6bYo5NK6IVMPgHv9E7EzAluvjhsrG8lNNjyOA/1VrAtpNlaX3hZmcdAQ1rpUrPNGWKzJcwVG0hEB5rCtNyMiX72e7Z7vDLHEmrHkpfnTUR3WJvXYCeTAze26eoHNKVF6OiqZX8A1UJTFFZpB4Knx1BQP1f9dNTQqIxAsoT1ClEIUyBXc2nO7njY1hR87OGd0N4EfxBqN0VsWnX8wixN9c4QsqI2gupVFthJD9X7/l9+H11cRoUODnCQ7tBVF0zjpELr3waiHFBb4UYpBM+U45t3YqrNZ/HIU/IQ2Ih73sLEE8995z4qsQNPRTmXglb7HqL9go94=
+  - secure: WA/7RW59B+l0JLcnt3bA0uPRQ0aJgZkpeeTGpxiO1A0zLf73eI5zrwBQk8QmEfTQEljQELCO2xctG6tMLkecAeQqKN/x/M6eWng9/GeLRQfr1KO2gJZorztSBEFwIwRMsCrEfTE2B/iSgf5tl/G+Nalh4JwKS9/VHv9njWu73VKG3TVCdbSr3AjUtI1jD/qyMkwLVP828wp57xLjHa3SAqjUHLg/svk5LOCHgWjXNGvIKVKjYGkItpaD6LKE9/iZ+Rz1dakkPZ2qbdAMdQm+n8Oc2/ESnT1cNxTu+W/JjFs5V4mL+RlZ5tAiExN2DsaxxK8G18TKTpzwHVVjUwhSWBJ9iuf41AMnpEdylln7+AKX7MK6oMT7iQTdwuO6HhpmV+Su31JNs51GAP+O2qZEwYLdrTE+5gy6LqA2Efan7D9uYf+klfn3GgrEtowiQNtyDFwa0SkomVfocAcRY4M3mgdxUkfc8ivt1teHdJff78fHUTgKRR3Jv9fjnir9Zpra8K4imr8FoZlXBCSvIK3iygGzm3TmTTbYmhsn95Vw0MS36n14GD76id8HGuG7+Eb71EIMafW+huTnw9RR3mLD1oDAgupYy/gBYUJiX93H6VZ+aQsA+ftnVjTxQxJTTWYmdBwtzvemY2le1XE/fXRv1Hv5yd9wio3SCUsXBhaHTZg=
