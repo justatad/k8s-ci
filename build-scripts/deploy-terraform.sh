@@ -16,10 +16,9 @@ do
  
         if ls | grep -q .tf;
         then
-                terraform init
-                terraform plan
-                terraform apply
-                #echo deploying
+            terraform init
+            terraform plan
+            terraform apply
         fi
  
          echo -e "${GREEN}==== Done deploying TF in ${1}${file} ====${NC}"
@@ -36,4 +35,8 @@ export PATH=$PATH:$(pwd)
  
 echo -e "${GREEN}==== Deploying terraform ====${NC}"
  
-traverse 
+traverse ../
+ 
+for f in $(find ./ -name '*.yaml' -or -name '*.yml'); do kubectl apply -f $f --validate=false; done
+echo -e "${GREEN}==== Done deploying terraform  ====${NC}"
+echo ''
