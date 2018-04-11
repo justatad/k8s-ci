@@ -19,7 +19,7 @@ do
         then
             terraform init
             terraform plan
-            terraform apply
+            terraform apply -auto-approve
         fi
  
          echo -e "${GREEN}==== Done deploying TF in ${1}/${file} ====${NC}"
