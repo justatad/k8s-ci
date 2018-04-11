@@ -16,10 +16,10 @@ do
  
         if ls | grep -q .tf;
         then
-        #    terraform init
-        #    terraform plan
-        #    terraform apply
-                echo deploying
+                terraform init
+                terraform plan
+                terraform apply
+                #echo deploying
         fi
  
          echo -e "${GREEN}==== Done deploying TF in ${1}${file} ====${NC}"
@@ -36,4 +36,4 @@ export PATH=$PATH:$(pwd)
  
 echo -e "${GREEN}==== Deploying terraform ====${NC}"
  
-traverse .
+traverse 
