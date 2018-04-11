@@ -36,4 +36,4 @@ export PATH=$PATH:$(pwd)
  
 echo -e "${GREEN}==== Deploying terraform ====${NC}"
  
-traverse ./
+traverse .
