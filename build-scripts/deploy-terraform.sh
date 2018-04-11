@@ -37,6 +37,5 @@ echo -e "${GREEN}==== Deploying terraform ====${NC}"
  
 traverse ../
  
-for f in $(find ./ -name '*.yaml' -or -name '*.yml'); do kubectl apply -f $f --validate=false; done
 echo -e "${GREEN}==== Done deploying terraform  ====${NC}"
 echo ''
