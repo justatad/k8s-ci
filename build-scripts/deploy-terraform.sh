@@ -4,7 +4,7 @@
  
 function traverse() {  
  
-for file in `ls $1`
+for file in 'ls $1'
 do
     #current=${1}{$file}
     if [ ! -d ${1}${file} ] ; then
