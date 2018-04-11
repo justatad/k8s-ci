@@ -13,7 +13,7 @@
         "Sid": "",
         "Effect": "Allow",
         "Principal": {
-          "AWS": "arn:aws:iam::143599268911:role/nodes.cluster.zigzag-london.com"
+          "AWS": "arn:aws:iam::143599268911:role/nodes.cluster.zigzag-london.net"
         },
         "Action": "sts:AssumeRole"
       }
