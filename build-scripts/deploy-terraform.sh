@@ -17,10 +17,9 @@ do
  
         if ls | grep -q .tf;
         then
-            #terraform init
-            #terraform plan
-            #terraform apply
-            echo -e "${GREEN}==== TF found to deploy ====${NC}"
+            terraform init
+            terraform plan
+            terraform apply
         fi
  
          echo -e "${GREEN}==== Done deploying TF in ${1}/${file} ====${NC}"
