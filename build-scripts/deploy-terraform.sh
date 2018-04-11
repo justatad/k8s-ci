@@ -4,7 +4,7 @@
  
 function traverse() {  
  
-for file in 'ls $1'
+for file in "ls $1"
 do
     #current=${1}{$file}
     if [ ! -d ${1}${file} ] ; then
@@ -23,8 +23,8 @@ do
  
          echo -e "${GREEN}==== Done deploying TF in ${1}${file} ====${NC}"
         ls
-        echo "Traversing ${1}${file} next"
-        traverse "${1}${file}"
+        echo "Traversing ${1}/${file} next"
+        traverse "${1}/${file}"
     fi
 done
 }
