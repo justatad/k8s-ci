@@ -3,7 +3,7 @@ mkdir ~/.kube
 mv ./build-scripts/kubeconfig ~/.kube/config
  
 #decrypt the large secrets
-openssl aes-256-cbc -K $encrypted_20b08b0d4be3_key -iv $encrypted_20b08b0d4be3_iv -in build-scripts/large-secrets.txt.enc -out build-scripts/large-secrets.txt -d
+openssl aes-256-cbc -K $encrypted_55aec6d91b66_key -iv $encrypted_55aec6d91b66_iv -in ./build-scripts/large-secrets.txt.enc -out build-scripts/large-secrets.txt -d
 
 # run the script to get the secrets as environment variables
 source ./build-scripts/large-secrets.txt
