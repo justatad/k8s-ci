@@ -22,7 +22,8 @@ do
         fi
  
          echo -e "${GREEN}==== Done deploying TF in ${1}${file} ====${NC}"
- 
+        ls
+        echo "Traversing ${1}${file} next"
         traverse "${1}${file}"
     fi
 done
