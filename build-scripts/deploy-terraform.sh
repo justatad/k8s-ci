@@ -12,7 +12,7 @@ do
     else
  
         echo -e "${GREEN}==== Deploying TF in ${1}${file} ====${NC}"
-        cd ${1}/${file}
+        cd ${1}${file}
  
         if ls | grep -q .tf;
         then
@@ -23,7 +23,7 @@ do
  
          echo -e "${GREEN}==== Done deploying TF in ${1}${file} ====${NC}"
  
-        traverse "${1}/${file}"
+        traverse "${1}${file}"
     fi
 done
 }
