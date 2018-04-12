@@ -77,6 +77,8 @@ spec:
     type: RollingUpdate
   template:
     metadata:
+     annotations:
+        iam.amazonaws.com/role: arn:aws:iam::143599268911:role/ingress_pod_role
       creationTimestamp: null
       labels:
         app: alb-ingress-controller
