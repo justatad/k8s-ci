@@ -1,3 +1,57 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: default-http-backend
+  labels:
+    k8s-app: default-http-backend
+  namespace: kube-system
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        k8s-app: default-http-backend
+    spec:
+      terminationGracePeriodSeconds: 60
+      containers:
+      - name: default-http-backend
+        # Any image is permissable as long as:
+        # 1. It serves a 404 page at /
+        # 2. It serves 200 on a /healthz endpoint
+        image: gcr.io/google_containers/defaultbackend:1.0
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+        ports:
+        - containerPort: 8080
+        resources:
+          limits:
+            cpu: 10m
+            memory: 20Mi
+          requests:
+            cpu: 10m
+            memory: 20Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: default-http-backend
+  namespace: kube-system
+  labels:
+    k8s-app: default-http-backend
+spec:
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    k8s-app: default-http-backend
+
+
+---
 # Application Load Balancer (ALB) Ingress Controller Deployment Manifest.
 # This manifest details sensible defaults for deploying an ALB Ingress Controller.
 # GitHub: https://github.com/coreos/alb-ingress-controller
@@ -7,7 +61,6 @@ metadata:
   labels:
     app: alb-ingress-controller
   name: alb-ingress-controller
-  annotations:
   # Namespace the ALB Ingress Controller should run in. Does not impact which
   # namespaces it's able to resolve ingress resource for. For limiting ingress
   # namespace scope, see --watch-namespace.
@@ -24,13 +77,10 @@ spec:
     type: RollingUpdate
   template:
     metadata:
-      annotations:
-        iam.amazonaws.com/role: arn:aws:iam::143599268911:role/ingress_pod_role
       creationTimestamp: null
       labels:
         app: alb-ingress-controller
     spec:
-      serviceAccountName: ingress-alb
       containers:
       - args:
         - /server
@@ -62,18 +112,20 @@ spec:
           # This is only here for examples. It's recommended you instead use
           # a project like kube2iam for granting access.
         #- name: AWS_ACCESS_KEY_ID
-        #  value:
+           #value: KEYVALUE
           # AWS key secret for authenticating with the AWS API.
           # This is only here for examples. It's recommended you instead use
           # a project like kube2iam for granting access.
         #- name: AWS_SECRET_ACCESS_KEY
-        #  value: 
+           #value: SECRETVALUE
           # Enables logging on all outbound requests sent to the AWS API.
           # If logging is desired, set to true.
-        - name: LOG_LEVEL
-          value: "INFO"
         - name: AWS_DEBUG
-          value: "true"
+          value: "false"
+          # Maximum number of times to retry the aws calls.
+          # defaults to 20.
+        - name: AWS_MAX_RETRIES
+          value: "20"
         - name: POD_NAME
           valueFrom:
             fieldRef:
