@@ -77,12 +77,13 @@ spec:
     type: RollingUpdate
   template:
     metadata:
-     annotations:
-        iam.amazonaws.com/role: arn:aws:iam::143599268911:role/ingress_pod_role
+      annotations:
+        iam.amazonaws.com/role: aws iam get-role --role-name ingress_pod_role
       creationTimestamp: null
       labels:
         app: alb-ingress-controller
     spec:
+      serviceAccountName: ingress-alb
       containers:
       - args:
         - /server
