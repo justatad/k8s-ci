@@ -124,7 +124,7 @@ spec:
           # Enables logging on all outbound requests sent to the AWS API.
           # If logging is desired, set to true.
         - name: AWS_DEBUG
-          value: "false"
+          value: "true"
           # Maximum number of times to retry the aws calls.
           # defaults to 20.
         - name: AWS_MAX_RETRIES
@@ -140,7 +140,7 @@ spec:
               apiVersion: v1
               fieldPath: metadata.namespace
         # Repository location of the ALB Ingress Controller.
-        image: quay.io/coreos/alb-ingress-controller:1.0-alpha.3
+        image: quay.io/coreos/alb-ingress-controller:1.0-alpha.5.1
         imagePullPolicy: Always
         name: server
         resources: {}
