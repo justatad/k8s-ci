@@ -19,10 +19,6 @@ spec:
         image: justatad/salutations_globe
         ports:
         - containerPort: 8080
-      resources:
-        requests:
-          memory: "64Mi"
-          cpu: "250m"
 
 ---
 
@@ -39,7 +35,7 @@ spec:
     port: 80
     targetPort: 8080
  
- ---
+---
  
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -52,7 +48,7 @@ metadata:
     app: salutations
 spec:
   rules:
-  - host: salutations.{yourdomain}
+  - host: salutations.cluster.zigzag-london.net
   - http:
       paths:
       - path: /
