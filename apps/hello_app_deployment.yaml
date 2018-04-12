@@ -48,7 +48,6 @@ metadata:
     app: salutations
 spec:
   rules:
-  - host: salutations.cluster.zigzag-london.net
   - http:
       paths:
       - path: /
