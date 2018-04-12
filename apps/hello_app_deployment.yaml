@@ -43,7 +43,7 @@ metadata:
   name: "hello-app-alb-ingress"
   annotations:
     alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/subnets: '{subnet1}, {subnet2}, {subnet3}'
+    alb.ingress.kubernetes.io/subnets: 'subnet-d1983db7, subnet-ffe04ab7, subnet-1b42a641'
   labels:
     app: salutations
 spec:
