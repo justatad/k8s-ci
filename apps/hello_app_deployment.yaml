@@ -1,18 +1,18 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: salutations-deployment
   labels:
     app: salutations
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: salutations
   template:
     metadata:
-      labels:
-        app: salutations
+        labels:
+                app: salutations
     spec:
       containers:
       - name: salutations-globe
@@ -27,7 +27,7 @@ spec:
 ---
 
 kind: Service
-apiVersion: v1
+apiVersion: apps/v1
 metadata:
   name: salutations-service
 spec:
@@ -41,18 +41,18 @@ spec:
  
  ---
  
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Ingress
 metadata:
   name: "hello-app-alb-ingress"
   annotations:
     alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/subnets: '{subnet1}, {subnet2}, {subnet3}'
+    alb.ingress.kubernetes.io/subnets: 'subnet-4c50b416, subnet-2ae24862, subnet-719b3e17'
   labels:
     app: salutations
 spec:
   rules:
-  - host: salutations.{yourdomain}
+  - host: salutations.zigzag-london.net
   - http:
       paths:
       - path: /
