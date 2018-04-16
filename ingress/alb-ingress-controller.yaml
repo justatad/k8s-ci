@@ -57,7 +57,7 @@ spec:
           # by the ALB Ingress Controller, providing distinction between
           # clusters.
         - name: CLUSTER_NAME
-          value: cluster.zigzag-london.net
+          value: cluster
           # AWS key id for authenticating with the AWS API.
           # This is only here for examples. It's recommended you instead use
           # a project like kube2iam for granting access.
@@ -87,7 +87,8 @@ spec:
               apiVersion: v1
               fieldPath: metadata.namespace
         # Repository location of the ALB Ingress Controller.
-        image: quay.io/coreos/alb-ingress-controller:latest
+        image: quay.io/coreos/alb-ingress-controller:b30d8d28
+        #image: quay.io/coreos/alb-ingress-controller:latest
         imagePullPolicy: Always
         name: server
         resources: {}
