@@ -73,7 +73,7 @@ spec:
         - name: AWS_MAX_RETRIES
           value: "20"
         - name: LOG_LEVEL
-          value: "INFO"
+          value: "DEBUG"
         - name: AWS_DEBUG
           value: "true"
         - name: POD_NAME
@@ -87,7 +87,7 @@ spec:
               apiVersion: v1
               fieldPath: metadata.namespace
         # Repository location of the ALB Ingress Controller.
-        image: quay.io/coreos/alb-ingress-controller:1.0-alpha.3
+        image: quay.io/coreos/alb-ingress-controller:latest
         imagePullPolicy: Always
         name: server
         resources: {}
