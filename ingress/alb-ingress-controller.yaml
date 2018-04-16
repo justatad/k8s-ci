@@ -78,7 +78,7 @@ spec:
   template:
     metadata:
       annotations:
-        iam.amazonaws.com/role: aws iam get-role --role-name ingress_pod_role
+        iam.amazonaws.com/role: arn:aws:iam::143599268911:role/ingress_pod_role
       creationTimestamp: null
       labels:
         app: alb-ingress-controller
@@ -123,6 +123,10 @@ spec:
            #value: SECRETVALUE
           # Enables logging on all outbound requests sent to the AWS API.
           # If logging is desired, set to true.
+        - name: AWS_MAX_RETRIES
+          value: "20"
+        - name: LOG_LEVEL
+          value: "DEBUG"
         - name: AWS_DEBUG
           value: "true"
           # Maximum number of times to retry the aws calls.
@@ -140,7 +144,7 @@ spec:
               apiVersion: v1
               fieldPath: metadata.namespace
         # Repository location of the ALB Ingress Controller.
-        image: quay.io/coreos/alb-ingress-controller:1.0-alpha.5.1
+        image: quay.io/coreos/alb-ingress-controller:latest
         imagePullPolicy: Always
         name: server
         resources: {}

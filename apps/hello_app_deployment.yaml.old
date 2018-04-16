@@ -10,10 +10,14 @@ spec:
            app: salutations
     spec:
       containers:
-      - name: salutations
         image: justatad/salutations_globe
+        name: salutations
         ports:
-          - containerPort: 8080
+        - containerPort: 8080
+      resources:
+        requests:
+          memory: "64Mi"
+          cpu: "250m"
 
 ---
 
@@ -30,7 +34,7 @@ spec:
     port: 80
     targetPort: 8080
  
----
+ ---
  
 apiVersion: extensions/v1beta1
 kind: Ingress
